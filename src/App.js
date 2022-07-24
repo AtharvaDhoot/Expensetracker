@@ -3,10 +3,10 @@ import "./App.css";
 
 const App = () => {
   const [records, setRecords] = useState([]);
-  const [recordType, setRecordType] = useState("expense");
 
+  const [recordType, setRecordType] = useState("expense");
   const [moneyDesc, setMoneyDesc] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
 
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
@@ -31,7 +31,7 @@ const App = () => {
     console.log(moneyDesc, amount, recordType);
 
     if (amount <= 0) {
-      setAmount(0);
+      setAmount("");
       setMoneyDesc("");
       return alert("Enter valid amount!");
     }
@@ -44,14 +44,17 @@ const App = () => {
 
     setRecords([...records, recordObj]);
 
-    setAmount(0);
+    setAmount("");
     setMoneyDesc("");
   };
 
   return (
     <div className="container">
+      <div className="header">
+        Money <span className="text-orange">Manager</span>{" "}
+      </div>
       <div className="budget-header">
-        Available Balance: <span id="budget-text">{balance}</span>
+        Balance: <span id="budget-text">{balance}</span>
       </div>
       <div className="total-income-expense">
         <div className="income-text-div">
@@ -102,9 +105,7 @@ const App = () => {
           name="amount"
           id="amount"
           value={amount}
-          onChange={(e) =>
-            setAmount(e.target.value && parseInt(e.target.value))
-          }
+          onChange={(e) => setAmount(parseInt(e.target.value))}
         />
         <input
           type="submit"

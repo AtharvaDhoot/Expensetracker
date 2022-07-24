@@ -1,9 +1,12 @@
 body {
+  background-color: #eeeae6;
   color: #110111;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Jaldi", "Courier New", Courier, monospace;
+  font-weight: 700;
 }
 
 .container {
@@ -11,9 +14,23 @@ body {
   margin: 0 auto;
 }
 
+.header {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.text-orange {
+  color: #f5b740 !important;
+}
+
 .budget-header {
   font-size: 2rem;
   margin: 2rem auto;
+  text-align: center;
+  background-color: #110111;
+  color: #eeeae6;
+  border-radius: 24px;
+  padding: 1rem;
 }
 
 .total-income-expense {
@@ -27,7 +44,7 @@ body {
 }
 
 .total-income-expense .income-text-div {
-  background-color: #5ad55a;
+  background-color: #c1e0ce;
   padding: 0.5rem 2rem;
   min-width: 10rem;
   display: flex;
@@ -38,14 +55,18 @@ body {
 }
 
 .total-income-expense .expense-text-div {
-  background-color: #ff5049;
-  padding: 0.5rem 2rem;
+  background-color: #f4c0ad;
+  padding: 1rem 2rem;
   min-width: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* font-size: 1.4rem; */
   border-radius: 24px;
+}
+
+.total-income-expense p {
+  margin: 0px !important;
 }
 
 .records-container {
@@ -58,15 +79,96 @@ body {
 .records-container .heading {
   font-size: 1.2rem;
   text-align: center;
-  padding: 1rem;
+  /* padding: 1rem; */
   font-weight: 700;
 }
 
 .income-records-list,
 .expense-records-list {
+  padding: 0px !important;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style-type: none;
+}
+
+.record-card {
+  background: white;
+  padding: 0.6rem;
+  border-radius: 24px;
+  width: 14rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0.5rem auto;
+}
+
+input {
+  border: none;
+  border-radius: 24px;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+#add-money-record,
+#reset-money-record {
+  background-color: #f5b740 !important;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .budget-header {
+    font-size: 2rem;
+    /* margin: 2rem auto; */
+    text-align: center;
+    background-color: #110111;
+    color: #eeeae6;
+    border-radius: 24px;
+    padding: 0px;
+    width: 100vw;
+    margin: 0px;
+  }
+
+  .total-income-expense {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    margin: 1rem auto;
+    gap: 2rem;
+  }
+
+  .total-income-expense .expense-text-div,
+  .total-income-expense .income-text-div {
+    padding: 0px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  .records-container {
+    flex-direction: column;
+    width: 100%;
+  }
 }
